@@ -29,10 +29,12 @@ import com.netflix.simianarmy.MonkeyConfiguration;
 import com.netflix.simianarmy.MonkeyRecorder;
 import com.netflix.simianarmy.MonkeyRecorder.Event;
 import com.netflix.simianarmy.MonkeyScheduler;
+import com.netflix.simianarmy.SecurityGroup;
 import com.netflix.simianarmy.aws.RDSRecorder;
 import com.netflix.simianarmy.aws.STSAssumeRoleSessionCredentialsProvider;
 import com.netflix.simianarmy.aws.SimpleDBRecorder;
 import com.netflix.simianarmy.client.aws.AWSClient;
+
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -389,7 +391,7 @@ public class BasicSimianArmyContext implements Monkey.Context {
      * @param cloudClient
      *            the new cloud client
      */
-    protected void setCloudClient(CloudClient cloudClient) {
+    protected void setCloudClient(SecurityGroup cloudClient) {
         this.client = (AWSClient) cloudClient;
     }
 

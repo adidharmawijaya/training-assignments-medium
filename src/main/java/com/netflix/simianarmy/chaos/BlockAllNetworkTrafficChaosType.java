@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import com.google.common.collect.Lists;
 import com.netflix.simianarmy.CloudClient;
 import com.netflix.simianarmy.MonkeyConfiguration;
+import com.netflix.simianarmy.SecurityGroup;
 
 /**
  * Blocks network traffic to/from instance, so it is running but offline.
@@ -55,7 +56,7 @@ public class BlockAllNetworkTrafficChaosType extends ChaosType {
      */
     @Override
     public boolean canApply(ChaosInstance instance) {
-        CloudClient cloudClient = instance.getCloudClient();
+        SecurityGroup cloudClient = instance.getCloudClient();
         String instanceId = instance.getInstanceId();
 
         if (!cloudClient.canChangeInstanceSecurityGroups(instanceId)) {
